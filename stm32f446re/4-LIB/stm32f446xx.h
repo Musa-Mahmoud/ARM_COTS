@@ -162,9 +162,9 @@ typedef struct
 
 typedef struct
 {
-    volatile uint32_t MEMRMP                /* SYSCFG memory remap register                                     */
-    volatile uint32_t PMC                   /* SYSCFG peripheral mode configuration register                    */
-    volatile uint32_t EXTICR[4]             /* SYSCFG external interrupt configuration register 1, 2, 3 and 4   */
+    volatile uint32_t MEMRMP;               /* SYSCFG memory remap register                                     */
+    volatile uint32_t PMC;                  /* SYSCFG peripheral mode configuration register                    */
+    volatile uint32_t EXTICR[4];            /* SYSCFG external interrupt configuration register 1, 2, 3 and 4   */
     uint32_t        RESERVED0[2];           /* Reserved 8 bytes                                                 */
     volatile uint32_t CMPCR;                /* SYSCFG Compensation cell control register                        */
     uint32_t        RESERVED1[2];           /* Reserved 8 bytes                                                 */
@@ -181,6 +181,7 @@ typedef struct
     volatile uint32_t RTSR;                 /* EXTI Rising trigger selection register    */
     volatile uint32_t FTSR;                 /* EXTI Falling trigger selection register   */
     volatile uint32_t SWIER;                /* EXTI Software interrupt event register    */
+    volatile uint32_t PR;                   /* EXTI Pending register                     */
 } EXTI_RegDef_t;
 
 
