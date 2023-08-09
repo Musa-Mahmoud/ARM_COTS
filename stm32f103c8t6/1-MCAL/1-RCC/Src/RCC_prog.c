@@ -1,18 +1,21 @@
-/************************************************************************************/
-/************************************************************************************/
-/************************        Author: Musa Mahmoud        ************************/
-/************************        Layer:  MCAL                ************************/
-/************************        SWC:    RCC                 ************************/
-/************************        Version:1.0                 ************************/
-/************************************************************************************/
-/************************************************************************************/
+/************************************************************************************
+ * @file RCC_prog.c
+ * @author Musa Mahmoud
+ * @brief The RCC(Reset and Clock Control) main source file, including functions' definition
+ * @version 1.0
+ * @date 2023-05-05
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 
 #include <stdint.h>
+#include "stm32f103xx.h"
+#include "ErrType.h"
 #include "BIT_MATH.h"
+
 #include "RCC_interface.h"
-#include "RCC_register.h"
-#include "RCC_config.h"
-#include "RCC_private.h"
+#include "RCC_prv.h"
 
 
 RCC_ErrorState_t RCC_SetClkSts(RCC_Clock_t Copy_ClockType, RCC_Status_t Copy_StatusType)
@@ -23,9 +26,9 @@ RCC_ErrorState_t RCC_SetClkSts(RCC_Clock_t Copy_ClockType, RCC_Status_t Copy_Sta
     {
         switch (Copy_ClockType)
         {
-        case RCC_CLOCKTYPE_PLL: SET_BIT(RCC->CR, RCC_CR_PLLON_POS); while(!GET_BIT(RCC->CR, RCC_CR_PLLRDY_POS) && --Local_TimeoutAmount) break;
-        case RCC_CLOCKTYPE_HSE: SET_BIT(RCC->CR, RCC_CR_HSEON_POS); while(!GET_BIT(RCC->CR, RCC_CR_HSERDY_POS) && --Local_TimeoutAmount) break;
-        case RCC_CLOCKTYPE_HSI: SET_BIT(RCC->CR, RCC_CR_HSION_POS); while(!GET_BIT(RCC->CR, RCC_CR_HSIRDY_POS) && --Local_TimeoutAmount) break;
+        case RCC_CLOCKTYPE_PLL: SET_BIT(RCC->CR, RCC_CR_PLLON_POS); while(!GET_BIT(RCC->CR, RCC_CR_PLLRDY_POS) && Local_TimeoutAmount--) break;
+        case RCC_CLOCKTYPE_HSE: SET_BIT(RCC->CR, RCC_CR_HSEON_POS); while(!GET_BIT(RCC->CR, RCC_CR_HSERDY_POS) && Local_TimeoutAmount--) break;
+        case RCC_CLOCKTYPE_HSI: SET_BIT(RCC->CR, RCC_CR_HSION_POS); while(!GET_BIT(RCC->CR, RCC_CR_HSIRDY_POS) && Local_TimeoutAmount--) break;
         default: return RCC_ErrorState_WRONG_OPTION;
         }
     }
