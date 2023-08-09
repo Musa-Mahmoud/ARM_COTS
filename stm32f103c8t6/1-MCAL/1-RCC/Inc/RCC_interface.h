@@ -1,12 +1,3 @@
-/************************************************************************************/
-/************************************************************************************/
-/************************        Author: Musa Mahmoud        ************************/
-/************************        Layer:  MCAL                ************************/
-/************************        SWC:    RCC                 ************************/
-/************************        Version:1.0                 ************************/
-/************************************************************************************/
-/************************************************************************************/
-
 #ifndef RCC_INTERFACE_H_
 #define RCC_INTERFACE_H_
 
@@ -36,13 +27,10 @@ typedef enum
 
 typedef enum
 {
-    RCC_AHB_PERIPHERALTYPE_DMA1,
-    RCC_AHB_PERIPHERALTYPE_DMA2,
-    RCC_AHB_PERIPHERALTYPE_SRAM,
+    RCC_AHB_PERIPHERALTYPE_DMA1 = 0,
+    RCC_AHB_PERIPHERALTYPE_SRAM = 2,
     RCC_AHB_PERIPHERALTYPE_FLITF = 4,
-    RCC_AHB_PERIPHERALTYPE_CRC = 6,
-    RCC_AHB_PERIPHERALTYPE_FSMC = 8,
-    RCC_AHB_PERIPHERALTYPE_SDIO = 10 
+    RCC_AHB_PERIPHERALTYPE_CRC = 6
 } RCC_AHB_Peripheral_t;
 
 typedef enum
@@ -53,18 +41,11 @@ typedef enum
     RCC_APB2_PERIPHERALTYPE_IOPC,
     RCC_APB2_PERIPHERALTYPE_IOPD,
     RCC_APB2_PERIPHERALTYPE_IOPE,
-    RCC_APB2_PERIPHERALTYPE_IOPF,
-    RCC_APB2_PERIPHERALTYPE_IOPG,
-    RCC_APB2_PERIPHERALTYPE_ADC1,
+    RCC_APB2_PERIPHERALTYPE_ADC1 = 9,
     RCC_APB2_PERIPHERALTYPE_ADC2,
     RCC_APB2_PERIPHERALTYPE_TIM1,
     RCC_APB2_PERIPHERALTYPE_SPI1,
-    RCC_APB2_PERIPHERALTYPE_TIM8,
-    RCC_APB2_PERIPHERALTYPE_USART1,
-    RCC_APB2_PERIPHERALTYPE_ADC3,
-    RCC_APB2_PERIPHERALTYPE_TIM9 = 19,
-    RCC_APB2_PERIPHERALTYPE_TIM10,
-    RCC_APB2_PERIPHERALTYPE_TIM11
+    RCC_APB2_PERIPHERALTYPE_USART1 = 14
 } RCC_APB2_Peripheral_t;
 
 typedef enum
@@ -72,26 +53,16 @@ typedef enum
     RCC_APB1_PERIPHERALTYPE_TIM2,
     RCC_APB1_PERIPHERALTYPE_TIM3,
     RCC_APB1_PERIPHERALTYPE_TIM4,
-    RCC_APB1_PERIPHERALTYPE_TIM5,
-    RCC_APB1_PERIPHERALTYPE_TIM6,
-    RCC_APB1_PERIPHERALTYPE_TIM7,
-    RCC_APB1_PERIPHERALTYPE_TIM12,
-    RCC_APB1_PERIPHERALTYPE_TIM13,
-    RCC_APB1_PERIPHERALTYPE_TIM14,
     RCC_APB1_PERIPHERALTYPE_WWDG = 11,
     RCC_APB1_PERIPHERALTYPE_SPI2 = 14,
-    RCC_APB1_PERIPHERALTYPE_SPI3,
     RCC_APB1_PERIPHERALTYPE_USART2 = 17,
     RCC_APB1_PERIPHERALTYPE_USART3,
-    RCC_APB1_PERIPHERALTYPE_USART4,
-    RCC_APB1_PERIPHERALTYPE_USART5,
-    RCC_APB1_PERIPHERALTYPE_I2C1,
+    RCC_APB1_PERIPHERALTYPE_I2C1 = 21,
     RCC_APB1_PERIPHERALTYPE_I2C2,
     RCC_APB1_PERIPHERALTYPE_USB,
     RCC_APB1_PERIPHERALTYPE_CAN = 25,
     RCC_APB1_PERIPHERALTYPE_BKP = 27,
-    RCC_APB1_PERIPHERALTYPE_PWR,
-    RCC_APB1_PERIPHERALTYPE_DAC
+    RCC_APB1_PERIPHERALTYPE_PWR
 } RCC_APB1_Peripheral_t;
 
 typedef enum 
