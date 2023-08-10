@@ -26,9 +26,9 @@ RCC_ErrorState_t RCC_SetClkSts(RCC_Clock_t Copy_ClockType, RCC_Status_t Copy_Sta
     {
         switch (Copy_ClockType)
         {
-        case RCC_CLOCKTYPE_PLL: SET_BIT(RCC->CR, RCC_CR_PLLON_POS); while(!GET_BIT(RCC->CR, RCC_CR_PLLRDY_POS) && Local_TimeoutAmount--) break;
-        case RCC_CLOCKTYPE_HSE: SET_BIT(RCC->CR, RCC_CR_HSEON_POS); while(!GET_BIT(RCC->CR, RCC_CR_HSERDY_POS) && Local_TimeoutAmount--) break;
-        case RCC_CLOCKTYPE_HSI: SET_BIT(RCC->CR, RCC_CR_HSION_POS); while(!GET_BIT(RCC->CR, RCC_CR_HSIRDY_POS) && Local_TimeoutAmount--) break;
+        case RCC_CLOCKTYPE_PLL: SET_BIT(RCC->CR, RCC_CR_PLLON_POS); while(!GET_BIT(RCC->CR, RCC_CR_PLLRDY_POS) && --Local_TimeoutAmount) break;
+        case RCC_CLOCKTYPE_HSE: SET_BIT(RCC->CR, RCC_CR_HSEON_POS); while(!GET_BIT(RCC->CR, RCC_CR_HSERDY_POS) && --Local_TimeoutAmount) break;
+        case RCC_CLOCKTYPE_HSI: SET_BIT(RCC->CR, RCC_CR_HSION_POS); while(!GET_BIT(RCC->CR, RCC_CR_HSIRDY_POS) && --Local_TimeoutAmount) break;
         default: return RCC_ErrorState_WRONG_OPTION;
         }
     }
