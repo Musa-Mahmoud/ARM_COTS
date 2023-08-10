@@ -38,6 +38,8 @@
 
 #define EXTI_BASE_ADDRESS       0x40010400U
 
+#define AFIO_BASE_ADDRESS       0x40010000U
+
 
 /**********************************     SYSTICK Register Definition Structure     **********************************/
 
@@ -97,15 +99,12 @@ typedef struct
 
 typedef struct
 {
-    volatile uint32_t MODER;                /* GPIO port mode register                                      */
-    volatile uint32_t OTYPER;               /* GPIO port output type register                               */
-    volatile uint32_t OSPEEDR;              /* GPIO port output speed register                              */
-    volatile uint32_t PUPDR;                /* GPIO port pull-up/pull-down register                         */
+    volatile uint32_t CR[2];                /* GPIO Port configuration register(low and high)               */
     volatile uint32_t IDR;                  /* GPIO port input data register                                */
     volatile uint32_t ODR;                  /* GPIO port output data register                               */
     volatile uint32_t BSRR;                 /* GPIO port bit set/reset register                             */
+    volatile uint32_t BRR;                  /* GPIO port bit reset register                                 */
     volatile uint32_t LCKR;                 /* GPIO port configuration lock register                        */
-    volatile uint32_t AFR[2];               /* GPIO alternate function register(Low & High respectively)    */
 } GPIO_RegDef_t;
 
 
@@ -188,6 +187,7 @@ typedef struct
 /**********************************     EXTI Peripheral Definition     **********************************/
 
 #define EXTI                ((EXTI_RegDef_t*) EXTI_BASE_ADDRESS)
+
 
 
 #endif
