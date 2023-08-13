@@ -31,6 +31,9 @@
 
 #define RCC_BASE_ADDRESS        0x40023800U
 
+#define DMA1_BASE_ADDRESS       0x40026000U
+#define DMA2_BASE_ADDRESS       0x40026400U
+
 
 /**********************************     AHB2 Peripheral Base Addresses     **********************************/
 
@@ -158,6 +161,18 @@ typedef struct
 } RCC_RegDef_t;
 
 
+/**********************************     DMA Register Definition Structure     **********************************/
+
+typedef struct
+{
+    volatile uint32_t ISR[2];               /* DMA interrupt status register(low and high)                                          */
+    volatile uint32_t IFCR[2];              /* DMA interrupt flag clear register(low and high)                                      */
+    volatile uint32_t SxR[8][6];            /* DMA stream x(0:7) registers: CR(configuration register), NDTR(number of data register),
+                                                PAR(peripheral address register), M0AR(memory 0 address register),
+                                                M1AR(memory 1 address register) and FCR(FIFO control register)                      */
+} DMA_RegDef_t;
+
+
 /**********************************     SYSCFG Register Definition Structure     **********************************/
 
 typedef struct
@@ -215,6 +230,12 @@ typedef struct
 /**********************************     RCC Peripheral Definition     **********************************/
 
 #define RCC                 ((RCC_RegDef_t*) RCC_BASE_ADDRESS)
+
+
+/**********************************     DMA Peripheral Definition     **********************************/
+
+#define DMA1                ((DMA_RegDef_t*) DMA1_BASE_ADDRESS)
+#define DMA2                ((DMA_RegDef_t*) DMA2_BASE_ADDRESS)
 
 
 /**********************************     SYSCFG Peripheral Definition     **********************************/
