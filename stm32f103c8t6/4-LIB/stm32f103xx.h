@@ -150,6 +150,18 @@ typedef struct
 } EXTI_RegDef_t;
 
 
+/**********************************     AFIO Register Definition Structure     **********************************/
+
+typedef struct
+{
+    volatile uint32_t EVCR;                 /* AFIO Event control register                                  */
+    volatile uint32_t MAPR;                 /* AFIO AF remap and debug I/O configuration register           */
+    volatile uint32_t EXTICR[4];            /* AFIO External interrupt configuration register 1, 2, 3 and 4 */
+    uint32_t        RESERVED0;              /* Reserved 4 bytes                                                                 */
+    volatile uint32_t MAPR2;                /* AFIO AF remap and debug I/O configuration register2          */
+} AFIO_RegDef_t;
+
+
 /**********************************     SYSTICK Peripheral Definition     **********************************/
 
 #define SYSTICK             ((SYSTICK_RegDef_t*) SYSTICK_BASE_ADDRESS)
@@ -189,5 +201,8 @@ typedef struct
 #define EXTI                ((EXTI_RegDef_t*) EXTI_BASE_ADDRESS)
 
 
+/**********************************     AFIO Peripheral Definition     **********************************/
+
+#define AFIO                ((AFIO_RegDef_t*) AFIO_BASE_ADDRESS)
 
 #endif
